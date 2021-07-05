@@ -1,0 +1,33 @@
+## initialize a repo
+git init <folder name>
+
+## syncing your local repo to your github repo
+git remote add origin <github repo url>
+
+## set new main branch
+git checkout -b main
+
+## to add, commit, push
+# add
+git add <file name>    # add a file or files
+
+or
+
+git add *               # add all modified files
+
+# commit 
+git commit -m 'message'
+
+or 
+
+git commit 
+
+# push/update online github repo
+git push -u origin main
+
+or
+
+git push
+
+
+
