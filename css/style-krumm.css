@@ -22,7 +22,7 @@ body {
 
 .header {
     margin: 0;
-    padding: 5px;
+    /*padding: 5px;*/
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -68,22 +68,70 @@ body {
     flex-direction: row;
     font-size: 30px;
     margin: 0;
-    padding: .5em 5em;
+    padding: .15em;
+
+/**
+change 1 -> 
+allowed flex handle content alignment 
+cuz its more dynamic and adjusts to screensize
+you can change to(
+                center,
+                space-around,  
+                space-between,
+                start,
+                end,
+                stretch
+                ) and see how they work
+*/
+    justify-content: space-evenly;
+
+/** end of change 1 **/
 }
 
 .left-grid {
     display: flex;
     justify-content: center;
     flex-direction: column;
+ 
+/** 
+change 2 -> removed padding and margin 
+from left-grid since the jumbotron justify content
+we added would handle that, even when we resize the screen
+
     padding-left: 3rem;
     margin-left: 4rem;
+
+end of change 2 **/
+}
+
+.right-grid {
+/* 
+change 3 -> this is bad practice
+    width: 50%;
+end of change 3*/
+
+    display: flex;
+
+/**
+change 4 -> like i said, the
+jumbotron justify-content rule would
+handle this as well
+
+    padding-right: .5em;
+
+end of change 4 **/
 }
 
 .left-grid h2,
 .left-grid p
 {
     margin: .5rem 0;
-    padding: .5rem 2rem 0 0rem;   
+/**
+change 9 -> this is also handled by the
+flex justify-content rule
+
+    padding: .5rem 2rem 0 0rem;
+end of change 9 **/   
 }
 
 .left-grid h2{
@@ -96,7 +144,14 @@ body {
 }
 
 .btn-primary {
+/** 
+change 6 -> this is also bad practice 
+in this case so remove
+
     width: 50%;
+
+end of change 6 **/
+
     background-color: green;
     border-color: transparent;
     border-radius: 5px;
@@ -112,12 +167,6 @@ body {
 
 .btn-link {
     margin: 0;
-}
-
-.right-grid {
-    width: 50%;
-    display: flex;
-    padding-right: 3em;
 }
 
 .j-image {
@@ -203,6 +252,19 @@ body {
   }
 
 @media only screen and (max-width: 950px) {
+/**
+change 5 ->
+added one more image resize, 
+so that when the screen is 950, 
+the image size decreases to 250 by 250 pixels
+**/ 
+    .j-image {
+        width: 250px;
+        height: 250px;
+    }
+/** end of change 5 **/
+
+
     .nav-bar .nav-link {
         display: none;
     }
@@ -210,9 +272,7 @@ body {
     .toggle-btn {
         display: inline;
     }
-}
 
-@media only screen and (max-width: 950px) {
     .jumbotron {
         flex-direction: column-reverse;
         align-items: center;
@@ -229,9 +289,19 @@ body {
         padding: 0;
     }
 
+/**
+change 7 -> you don't have to add this
+but it's more better
+**/
+    .btn-link {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+    }
+/** end of change 7 **/
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 600px) {
     .j-image {
         width: 200px;
         height: 200px;
@@ -265,7 +335,11 @@ body {
 
     .btn-primary {
         text-align: center;
+
+/*
+change 8 -> not needed
         margin-right: 2.5rem;
+end of change 8*/
     }
 }
 
